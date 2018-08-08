@@ -1,0 +1,30 @@
+<h1>Are you hungry for some SUSHI!</h1>
+
+<h2>Sushi to be eaten!</h2>
+<div>
+  {{#each sushi}}
+    {{#unless devoured}}
+      {{> sushi-block devoured=true}}
+    {{/unless}}
+  {{/each}}
+</div>
+
+<h2>Sushi that is all gone!</h2>
+<div>
+  {{#each sushi}}
+    {{#if devoured}}
+      {{> sushi-block devoured=false}}
+    {{/if}}
+  {{/each}}
+</div>
+
+
+<form class="create-form">
+
+  <div class="form-group">
+    <label for="sushi">Sushi Name:</label>
+    <input type="text" id="sushi" name="sushi_name">
+  </div>
+
+  <button type="submit">Submit</button>
+</form>
