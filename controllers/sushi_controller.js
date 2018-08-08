@@ -8,6 +8,7 @@ router.get("/", function(req, res) {
     sushi.selectAll(function(data) {
         var sushiObject = {
             sushi: data
+
         };
         console.log(sushiObject)
         res.render("index", sushiObject);
@@ -16,9 +17,9 @@ router.get("/", function(req, res) {
 
 router.post("/api/sushi", function(req, res) {
     sushi.insertOne([
-      "sushi_name", "devoured"
+      "sushi_name"
     ], [
-      req.body.sushi_name, req.body.devoured
+      req.body.sushi_name
     ], function(result) {
       // Send back the ID
       res.json({ id: result.insertId });
